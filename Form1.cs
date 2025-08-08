@@ -19,7 +19,7 @@ namespace example_popup
         private TextBox txtResult;
         private StrucForm strucForm;
         private ChromiumWebBrowser webBrowser;
-        private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
+        
 
         public Form1()
         {
@@ -27,10 +27,12 @@ namespace example_popup
             InitializeUI();
         }
 
+        
+
         private void InitializeUI()
         {
             // 建立 CefSharp 瀏覽器控制項
-            webBrowser = new ChromiumWebBrowser("https://lvaiw.cgmf.org.tw/go/temp3.html");
+            webBrowser = new ChromiumWebBrowser("https://lvaiw.cgmf.org.tw/go/temp2.html");
             webBrowser.Dock = DockStyle.Fill;
             
             // 使用預設瀏覽器設定
@@ -166,7 +168,6 @@ namespace example_popup
             base.OnFormClosing(e);
             strucForm?.Dispose(); // 確保資源被正確釋放
             webBrowser?.Dispose(); // 釋放瀏覽器資源
-            Cef.Shutdown(); // 關閉 CefSharp
         }
     }
 }
